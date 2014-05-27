@@ -1,0 +1,17 @@
+<div class="container">
+	<h2>Pessoas</h2>
+	Pode filtrar: <input type="text" ng-model="filter.name" class="form-control">
+	<ul class="list-unstyled">
+		<li ng-repeat="cust in customers | filter:filter.name | orderBy:'name'"><h3>{{ cust.name | lowercase }} - {{ cust.city | lowercase }}</h3></li>
+	</ul>
+
+    <br/>
+
+	<h4>Nome:</h4>
+	<input type="text" ng-model="newCustomer.name" class="form-control">
+	<h4>Cidade:</h4>
+	<input type="text" ng-model="newCustomer.city" class="form-control">
+	<br />
+	<button ng-click="addCustomer()" class="btn btn-lg">Adicionar</button>
+	<h2><a href="#/view2">View 2</a></h2>
+</div>
