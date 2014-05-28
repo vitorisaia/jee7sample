@@ -22,8 +22,7 @@ public class CustomerDBBean {
 
 	@PostConstruct
 	public void load() {
-		logger.error("Construction of " + this);
-		logger.trace("Construction of " + this);
+		logger.info("Construction of " + this);
 		customers = new ArrayList<Customer>();
 
 		customers.add(new Customer("biro biro", "urubull"));

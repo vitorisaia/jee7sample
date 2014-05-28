@@ -12,7 +12,7 @@ public class CurrentTimeTimer {
 
 	@Schedule(second = "10", minute = "*", hour = "*")
 	public void showCurrentTime() {
-		Logger.getLogger(CurrentTimeTimer.class).error(new Date());
+		Logger.getLogger(CurrentTimeTimer.class).info(new Date());
 	}
 
 }
