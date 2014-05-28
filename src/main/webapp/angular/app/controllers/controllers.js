@@ -8,7 +8,12 @@ demoApp.controller('CustomerController', function ($scope, CustomerFetcherServic
 
 	$scope.addCustomer = function() {
         CustomerFetcherService.addCustomer($scope.newCustomer);
-        $scope.customers.push($scope.newCustomer);
+        postAddCustomer();
 	};
+	
+	function postAddCustomer() {
+		$scope.customers.push($scope.newCustomer);
+        $scope.newCustomer = null;
+	}
 });
 
