@@ -6,23 +6,18 @@ public class Customer implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	private String name;
+
+	private String city;
+
 	// required
 	public Customer() {
-	}
-
-	@Override
-	public String toString() {
-		return "Customer [name=" + name + ", city=" + city + "]";
 	}
 
 	public Customer(String name, String city) {
 		this.name = name;
 		this.city = city;
 	}
-
-	private String name;
-
-	private String city;
 
 	public String getName() {
 		return name;
@@ -38,6 +33,11 @@ public class Customer implements Serializable {
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [name=" + name + ", city=" + city + "]";
 	}
 
 }

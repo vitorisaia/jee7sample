@@ -7,9 +7,13 @@ import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 
+import org.apache.log4j.Logger;
+
 @Singleton
 @Startup
 public class CustomerDBBean {
+
+	static final Logger logger = Logger.getLogger(CustomerDBBean.class);
 
 	private List<Customer> customers;
 
@@ -18,7 +22,8 @@ public class CustomerDBBean {
 
 	@PostConstruct
 	public void load() {
-		System.out.println("Construction of " + this);
+		logger.error("Construction of " + this);
+		logger.trace("Construction of " + this);
 		customers = new ArrayList<Customer>();
 
 		customers.add(new Customer("biro biro", "urubull"));

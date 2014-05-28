@@ -5,12 +5,14 @@ import java.util.Date;
 import javax.ejb.Schedule;
 import javax.ejb.Stateless;
 
+import org.apache.log4j.Logger;
+
 @Stateless
 public class CurrentTimeTimer {
 
 	@Schedule(second = "10", minute = "*", hour = "*")
 	public void showCurrentTime() {
-		System.out.println(new Date());
+		Logger.getLogger(CurrentTimeTimer.class).error(new Date());
 	}
 
 }
