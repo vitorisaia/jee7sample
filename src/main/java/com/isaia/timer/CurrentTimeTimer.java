@@ -10,7 +10,7 @@ import org.apache.log4j.Logger;
 @Stateless
 public class CurrentTimeTimer {
 
-	@Schedule(second = "10", minute = "*", hour = "*")
+	@Schedule(second = "10", minute = "*", hour = "*", persistent = false)
 	public void showCurrentTime() {
 		Logger.getLogger(CurrentTimeTimer.class).info(this + "#" + new Date());
 	}
