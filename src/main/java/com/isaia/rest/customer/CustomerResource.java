@@ -3,6 +3,7 @@ package com.isaia.rest.customer;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -18,9 +19,13 @@ public class CustomerResource {
 	@EJB
 	private CustomerDBBean customerDB;
 
+	@Inject
+	private CustomerHelloSayer customerHelloSayer;
+
 	@GET
 	@Path("fetchall")
 	public List<Customer> fetchCustomers() {
+		customerHelloSayer.sayHello();
 		return this.customerDB.getCustomers();
 	}
 
