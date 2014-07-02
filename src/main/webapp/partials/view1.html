@@ -1,17 +1,38 @@
 <div class="container">
 	<h2>Pessoas</h2>
 	Pode filtrar: <input type="text" ng-model="filter.name" class="form-control">
-	<ul class="list-unstyled">
+	<!-- <ul class="list-unstyled">
 		<li ng-repeat="cust in customers | filter:filter.name | orderBy:'name'"><h3>{{ cust.name | lowercase }} - {{ cust.city | lowercase }}</h3></li>
-	</ul>
+	</ul> -->
 
-    <br/>
+	<table class="table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Cidade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="cust in customers | filter:filter.name | orderBy:'name'">
+          <td>{{ cust.name | lowercase }}</td>
+          <td>{{ cust.city | lowercase }}</td>
+        </tr>
+      </tbody>
+     </table>
 
-	<h4>Nome:</h4>
-	<input type="text" ng-model="newCustomer.name" class="form-control">
-	<h4>Cidade:</h4>
-	<input type="text" ng-model="newCustomer.city" class="form-control">
+	Inserir novo:
+	<form class="form-inline" role="form">
+	  <div class="form-group">
+	    <label class="sr-only" for="inputNome">Nome</label>
+	    <input type="text" ng-model="newCustomer.name" class="form-control" placeholder="Informe o nome" id="inputNome">
+	  </div>
+	  <div class="form-group">
+ 		<label class="sr-only" for="inputCidade">Cidade</label>
+	    <input type="text" ng-model="newCustomer.city" class="form-control" placeholder="Informe a cidade" id="inputCidade">
+	  </div>
+	  <button ng-click="addCustomer()" class="btn btn-success">Adicionar</button>
+	</form>
+	
 	<br />
-	<button ng-click="addCustomer()" class="btn btn-lg">Adicionar</button>
-	<h2><a href="#/view2">View 2</a></h2>
+	<a href="#/view2">View 2</a>
 </div>
